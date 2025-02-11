@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="pregunta">
+        <h1>¿Quieres ser mi San Valentín? 💗</h1>
+        <div class="botones">
+            <button class="btn-si" onclick="aceptar()">Sí ❤️</button>
+            <button class="btn-no" onmouseover="moverBoton(this)">No 💔</button>
+        </div>
+    </div>
+
+    <div class="container" id="respuesta" style="display: none;">
+        <h1>¡TE ADORO DEMASIADO! 💝</h1>
+        <p>Gracias por aceptar ser mi San Valentín por 2da vez!! ✨</p>
+        <p class="mensaje-especial">Sos lo mejor que me ha pasado en la vida, te quiero muchisimo!! 💑</p>
+    </div>
+
+    <script>
+        function moverBoton(btn) {
+            const moveRange = 300; // Aumentado de 150 a 300 para mayor distancia
+            const container = btn.parentElement;
+            const rect = container.getBoundingClientRect();
+            
+            // Calculamos una posición más alejada
+            const x = Math.max(-moveRange/2, Math.min(rect.width + moveRange/2 - btn.offsetWidth, 
+                Math.random() * (rect.width + moveRange) - moveRange/2));
+            const y = Math.max(-moveRange/2, Math.min(rect.height + moveRange/2 - btn.offsetHeight, 
+                Math.random() * (rect.height + moveRange) - moveRange/2));
+            
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            // Agregamos una transición más rápida
+            btn.style.transition = 'all 0.2s ease'; // Reducido de 0.3s por defecto a 0.2s
+        }
+
+        function aceptar() {
+            document.getElementById('pregunta').style.display = 'none';
+            document.getElementById('respuesta').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
