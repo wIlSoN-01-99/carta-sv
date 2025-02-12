@@ -13,7 +13,7 @@ body {
 body::before {
     content: '💕';
     position: fixed;
-    animation: float 6s infinite;
+    animation: float 40s infinite;
     left: 10%;
     font-size: 2rem;
     opacity: 0.6;
@@ -22,7 +22,7 @@ body::before {
 body::after {
     content: '💝';
     position: fixed;
-    animation: float 8s infinite;
+    animation: float 40s infinite;
     right: 10%;
     font-size: 2rem;
     opacity: 0.6;
